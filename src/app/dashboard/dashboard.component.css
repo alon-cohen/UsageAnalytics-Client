@@ -1,0 +1,107 @@
+.total-users-container {
+  width: 382px;
+  height: 178px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  display: inline-flex;
+}
+
+.data-container {
+  margin: auto ;
+}
+
+.total-users-container > .data-container > .number {
+  height: 71px;
+  font-family: Roboto;
+  font-size: 60px;
+  text-align: center;
+  line-height: normal;
+  color: #ffffff;
+}
+
+.detail {
+  height: 24px;
+  opacity: 0.5;
+  font-family: Roboto;
+  font-size: 20px;
+  text-align: center;
+  line-height: normal;
+  color: #ffffff;
+  /*margin-top: 5px;*/
+}
+
+.new-users-container {
+  width: 382px;
+  height: 178px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  display: inline-flex;
+  margin-left: 20px;
+}
+
+.new-users-container > .data-container > .number {
+  height: 71px;
+  font-family: Roboto;
+  font-size: 60px;
+  text-align: center;
+  line-height: normal;
+  color: #4ed8da;
+}
+
+.vendor-container {
+  width: 376px;
+  height: 79px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  display: inline-flex;
+  margin-left: 20px;
+}
+
+.data-container > .id {
+  height: 24px;
+  font-family: Roboto;
+  font-size: 20px;
+  text-align: center;
+  color: #ffffff;
+  line-height: normal;
+}
+
+.vendor-container > .data-container > .detail {
+  height: 18px;
+  opacity: 0.5;
+  font-family: Roboto;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+  line-height: normal;
+  margin-top: 5px;
+}
+
+.date-update-container {
+  width: 376px;
+  height: 79px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  display: inline-flex;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.date-update-container > .data-container > .detail {
+  height: 18px;
+  opacity: 0.5;
+  font-family: Roboto;
+  font-size: 15px;
+  text-align: center;
+  color: #ffffff;
+  line-height: normal;
+  margin-top: 5px;
+}

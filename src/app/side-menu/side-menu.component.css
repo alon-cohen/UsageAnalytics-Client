@@ -24,6 +24,7 @@
   font-size: 22px;
   text-align: center;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .sidenav-content {
@@ -34,13 +35,26 @@
 .menu-selector {
   width: 4px;
   height: 32px;
+  /*padding: 0px 0px 0px 0px;*/
   background-color: #4ed8da;
+  float: left;
+}
+
+.icon-dash {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  float: left;
+  margin-top: 8px;
+  margin-left: 29px;
+  overflow: hidden;
 }
 
 .sidenavitem {
   padding-left: 75px;
   padding-right: 56px;
   padding-bottom: 30px;
+  margin-top: 5px;
 }
 
 .sidenavitem a {
@@ -49,13 +63,10 @@
   font-size: 16px;
   text-align: left;
   color: #ffffff;
+  text-decoration: none;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenavitem a:hover {
   color: #4ed8da;
 }
-
-/*.sidenavitem.active a {*/
-/*color: #4ed8da;*/
-/*}*/

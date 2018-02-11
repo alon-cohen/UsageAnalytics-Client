@@ -1,25 +1,44 @@
 <div id="sideMenu" class="sidenav">
   <div class="sidenav-header">
-    <a routerLink="/">Usage Analytics</a>
+    <a routerLink="/" (click)="selectedItem='dashboard'">Usage Analytics</a>
   </div>
-  <div class="sidenav-content">
-    <div class="menu-selector"></div>
-    <img src="img/icon-dash.png"
-         srcset="img/icon-dash@2x.png 2x,
-					 img/icon-dash@3x.png 3x"
-         class="icon-dash">
 
+  <div class="sidenav-content">
+    <div class="menu-selector"
+         [ngStyle]="{backgroundColor: selectedItem === 'dashboard' ? '#4ed8da' : 'transparent'}"></div>
+    <img [src]="'../../assets/menu-icons/' + (selectedItem === 'dashboard' ? 'selected' : 'unselected') + '/icon-dash.png'" class="icon-dash">
     <div class="sidenavitem">
-      <a routerLink="dashboard">Dashboard</a>
+      <a routerLink="dashboard"
+         (click)="selectedItem='dashboard'"
+        [ngStyle]="{color: selectedItem === 'dashboard' ? '#4ed8da' : ''}">Dashboard</a>
     </div>
+
+    <div class="menu-selector"
+         [ngStyle]="{backgroundColor: selectedItem === 'platforms' ? '#4ed8da' : 'transparent'}"></div>
+    <img [src]="'../../assets/menu-icons/' + (selectedItem === 'platforms' ? 'selected' : 'unselected') + '/database-regular.png'" class="icon-dash">
     <div class="sidenavitem">
-      <a routerLink="platforms">Platforms</a>
+      <a routerLink="platforms"
+         (click)="selectedItem='platforms'"
+         [ngStyle]="{color: selectedItem === 'platforms' ? '#4ed8da' : ''}">Platforms</a>
     </div>
+
+    <div class="menu-selector"
+         [ngStyle]="{backgroundColor: selectedItem === 'services' ? '#4ed8da' : 'transparent'}"></div>
+    <img [src]="'../../assets/menu-icons/' + (selectedItem === 'services' ? 'selected' : 'unselected') + '/line-chart.png'" class="icon-dash">
     <div class="sidenavitem">
-      <a routerLink="services">Services</a>
+      <a routerLink="services"
+         (click)="selectedItem='services'"
+         [ngStyle]="{color: selectedItem === 'services' ? '#4ed8da' : ''}">Services</a>
     </div>
+
+    <div class="menu-selector"
+         [ngStyle]="{backgroundColor: selectedItem === 'verticals' ? '#4ed8da' : 'transparent'}"></div>
+    <img [src]="'../../assets/menu-icons/' + (selectedItem === 'verticals' ? 'selected' : 'unselected') + '/shape.png'" class="icon-dash">
     <div class="sidenavitem">
-      <a routerLink="verticals">Verticals</a>
+      <a routerLink="verticals"
+         (click)="selectedItem='verticals'"
+         [ngStyle]="{color: selectedItem === 'verticals' ? '#4ed8da' : ''}">Verticals</a>
     </div>
   </div>
 </div>
+
