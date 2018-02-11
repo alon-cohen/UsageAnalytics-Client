@@ -1,0 +1,61 @@
+/* The side navigation menu */
+.sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 221px;
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #2d3136;
+  overflow-x: hidden; /* Disable horizontal scroll */
+}
+
+.sidenav-header {
+  width: 221px;
+  height: 80px;
+  background-color: #393e44;
+  padding-top: 25px;
+  padding-left: 30px;
+}
+
+.sidenav-header a {
+  width: 163px;
+  font-family: Roboto;
+  font-size: 22px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.sidenav-content {
+  padding-top: 25px; /* Place content 25px from the top */
+}
+
+/* The navigation menu links */
+.menu-selector {
+  width: 4px;
+  height: 32px;
+  background-color: #4ed8da;
+}
+
+.sidenavitem {
+  padding-left: 75px;
+  padding-right: 56px;
+  padding-bottom: 30px;
+}
+
+.sidenavitem a {
+  width: 86px;
+  font-family: Roboto;
+  font-size: 16px;
+  text-align: left;
+  color: #ffffff;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenavitem a:hover {
+  color: #4ed8da;
+}
+
+/*.sidenavitem.active a {*/
+/*color: #4ed8da;*/
+/*}*/

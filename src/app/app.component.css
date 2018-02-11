@@ -1,0 +1,8 @@
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  color: white;
+  background-color: #222529;
+  margin-left: 221px;
+  padding: 25px;
+  height: 900px;
+}
