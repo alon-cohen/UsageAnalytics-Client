@@ -105,3 +105,29 @@
   line-height: normal;
   margin-top: 5px;
 }
+
+.top3-services-container {
+  width: 379px;
+  height: 330px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  margin-top: 20px;
+}
+
+.top3-services-container > .data-container > .title {
+  height: 24px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+
+.c3 {
+  fill: white;
+}
