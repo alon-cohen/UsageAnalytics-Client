@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit {
       axis: {
         x: {
           tick: {
-            format: function (x) { return '';};
+            format: function (x) { return ''; }
           }
         },
         y: {
@@ -203,14 +203,14 @@ export class DashboardComponent implements OnInit {
       bindto: '#users-timeline',
       size: {
         width: 740,
-        height: 270
+        height: 300
       },
       color: {
         pattern: ['#4ed8da'],
       },
       padding: {
-        top: 15,
-        left: 50
+       top: 15,
+      left: 50
       },
       data: {
         x: 'x',
@@ -231,7 +231,12 @@ export class DashboardComponent implements OnInit {
         enabled: true
       },
       legend: {
-        show: 'false',
+        hide: true
+      },
+      grid: {
+        y: {
+          show: true
+        }
       }
     });
   }

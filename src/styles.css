@@ -6,3 +6,28 @@ body {
 .c3-chart-arc path {
   stroke: transparent;
 }
+.c3-legend-item {
+  fill: white;
+  opacity: 0.5;
+  font-family: Roboto;
+}
+
+#all-services .c3-legend-item {
+  font-size: 20px;
+}
+
+#platforms .c3-legend-item {
+  font-size: 15px;
+}
+
+.c3-axis {
+  fill: grey;
+}
+
+.c3-chart-arcs-title {
+  fill: white;
+  opacity: 0.5;
+  font-family: Roboto;
+}
+
+
