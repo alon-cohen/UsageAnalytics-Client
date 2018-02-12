@@ -40,7 +40,7 @@
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
   float: left;
   display: inline-flex;
-  margin-left: 20px;
+  /*margin-left: 20px;*/
 }
 
 .new-users-container > .data-container > .number {
@@ -53,14 +53,14 @@
 }
 
 .vendor-container {
-  width: 376px;
+  width: 382px;
   height: 79px;
   border-radius: 3px;
   background-color: #393e44;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
   float: left;
   display: inline-flex;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .data-container > .id {
@@ -84,14 +84,14 @@
 }
 
 .date-update-container {
-  width: 376px;
+  width: 382px;
   height: 79px;
   border-radius: 3px;
   background-color: #393e44;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
   float: left;
   display: inline-flex;
-  margin-left: 20px;
+  margin-left: 15px;
   margin-top: 20px;
 }
 
@@ -106,7 +106,7 @@
   margin-top: 5px;
 }
 
-.top3-services-container {
+.top3-services-container, .platforms-container {
   width: 379px;
   height: 330px;
   border-radius: 3px;
@@ -116,7 +116,8 @@
   margin-top: 20px;
 }
 
-.top3-services-container > .data-container > .title {
+.top3-services-container > .data-container > .title,
+.platforms-container > .data-container > .title {
   height: 24px;
   font-family: Roboto;
   font-size: 20px;
@@ -127,7 +128,50 @@
   margin-left: 16px;
 }
 
+.users-timeline-container {
+  width: 789px;
+  height: 330px;
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
 
-.c3 {
-  fill: white;
+
+  border-radius: 3px;
+  background-color: #393e44;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+  float: left;
+  margin-top: 20px;
 }
+
+.users-timeline-container > .data-container > .title {
+  height: 24px;
+  font-family: Roboto;
+  font-size: 20px;
+  font-weight: 500;
+  text-align: left;
+  color: #ffffff;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+#top3services {
+  fill: grey;
+}
+
+#top3verticals {
+  fill: grey;
+}
+
+#top3extensions {
+  fill: grey;
+}
+
+#platforms {
+  fill: grey;
+}
+
+#users-timeline {
+  fill: grey;
+}
+
+
