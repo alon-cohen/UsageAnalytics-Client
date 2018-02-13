@@ -2,7 +2,7 @@
   <div class="col-md-4">
     <div class="total-users-container">
       <div class="data-container">
-        <div class="number">9,204</div>
+        <div class="number">{{ totalUsers | number }}</div>
         <div class="detail">Total Users</div>
       </div>
     </div>
@@ -11,7 +11,7 @@
   <div class="col-md-4">
     <div class="new-users-container">
       <div class="data-container">
-        <div class="number">+54</div>
+        <div class="number">{{ newUsers | number }}</div>
         <div class="detail">Users this Week</div>
       </div>
     </div>
@@ -21,7 +21,7 @@
     <div class="row">
       <div class="vendor-container">
         <div class="data-container">
-          <div class="id">DX</div>
+          <div class="id">{{ vendorId }}</div>
           <div class="detail">Vendor ID</div>
         </div>
       </div>
@@ -30,7 +30,7 @@
     <div class="row">
       <div class="date-update-container">
         <div class="data-container">
-          <div class="id">Sunday, 31 Dec 2017</div>
+          <div class="id">{{ lastUpdate | date: 'fullDate' }}</div>
           <div class="detail">Last Data Update</div>
         </div>
       </div>
@@ -51,31 +51,38 @@
   <div class="col-md-4">
     <div class="top3-services-container">
       <div class="data-container">
-        <div class="title">Top 3 Verticals</div>
+        <div class="title">Top 3 Offers Packs</div>
         <div id="top3verticals"></div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
-    <div class="top3-services-container">
-      <div class="data-container">
-        <div class="title">Top 3 Extensions</div>
-        <div id="top3extensions"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
+  <!--<div class="col-md-4">-->
+    <!--<div class="top3-services-container">-->
+      <!--<div class="data-container">-->
+        <!--<div class="title">Top 3 Extensions</div>-->
+        <!--<div id="top3extensions"></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
   <div class="col-md-4">
     <div class="platforms-container">
       <div class="data-container">
         <div class="title">Platforms</div>
-        <div id="platforms"></div>
+        <div id="platforms" style="margin-left: 15px"></div>
       </div>
     </div>
-  </div>
+</div>
+
+<div class="row">
+  <!--<div class="col-md-4">-->
+    <!--<div class="platforms-container">-->
+      <!--<div class="data-container">-->
+        <!--<div class="title">Platforms</div>-->
+        <!--<div id="platforms"></div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
   <div class="col-md-4">
     <div class="users-timeline-container">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as c3 from 'c3';
+import {ServerService} from '../shared/server.service';
+import {Response} from '@angular/http';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,20 +9,82 @@ import * as c3 from 'c3';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  vendorId: string;
+  totalUsers;
+  newUsers;
+  lastUpdate;
+  topServices;
+  topVerticals;
+  platformsArray;
+  usersTimelineArray;
+  namesArray = ['x'];
+  valuesArray = ['data1'];
+
+// Charts Variables
   top3services;
   top3veticals;
   top3extensions;
   platforms;
   usersTimeline;
 
-  constructor() { }
+  constructor(private serverService: ServerService) { }
 
   ngOnInit() {
-    this.initTop3Services();
-    this.initTop3Verticals();
-    this.initTop3Extensions();
-    this.initPlatforms();
-    this.initUsersTimeline();
+    this.vendorId = this.serverService.getVendorId();
+    this.getTotalUsers();
+    this.getNewUsers();
+    this.getLastUpdate();
+
+    this.initCharts();
+  }
+
+  initCharts(){
+    this.getTopThreeServices();
+    this.getTopVerticals();
+    // this.initTop3Extensions();
+    this.getPlatforms();
+    this.getUsersTimeline();
+  }
+
+  getTotalUsers() {
+    const request = this.serverService.getTotalUsers();
+    request
+      .subscribe(
+        (response: Response) => {
+          const amount: number = response.json();
+          this.totalUsers = amount;
+        });
+  }
+
+  getNewUsers() {
+    const request = this.serverService.getNewUsers();
+    request
+      .subscribe(
+        (response: Response) => {
+          const amount: number = response.json();
+          this.newUsers = amount;
+        });
+  }
+
+  getLastUpdate() {
+    const request = this.serverService.getLastUpdate();
+    request
+      .subscribe(
+        (response: Response) => {
+          const date: Date = response.json();
+          this.lastUpdate = date;
+        });
+  }
+
+  getTopThreeServices() {
+    const request = this.serverService.getTopThreeServices();
+    request
+      .subscribe(
+        (response: Response) => {
+          const servicesList: any[] = response.json();
+          this.topServices = servicesList;
+          this.initTop3Services();
+        });
   }
 
   initTop3Services() {
@@ -39,9 +103,9 @@ export class DashboardComponent implements OnInit {
       },
       data: {
         columns: [
-          ['Video Session', 20],
-          ['Security', 50],
-          ['Home Automation', 30]
+          [this.topServices[0]['service'], this.topServices[0]['usageAmount']],
+          [this.topServices[1]['service'], this.topServices[1]['usageAmount']],
+          [this.topServices[2]['service'], this.topServices[2]['usageAmount']]
         ],
         type: 'bar'
       },
@@ -55,18 +119,30 @@ export class DashboardComponent implements OnInit {
             format: function (x) { return ''; }
           }
         },
-        y: {
-          tick: {
-              format: function (d) {
-                return d + '%';
-              }
-          }
-        }
+        // y: {
+        //   tick: {
+        //       format: function (d) {
+        //         return d + '%';
+        //       }
+        //   }
+        // }
       },
       tooltip: {
         grouped: false,
       }
     });
+  }
+
+
+  getTopVerticals() {
+    const request = this.serverService.getTopThreeVerticals();
+    request
+      .subscribe(
+        (response: Response) => {
+          const verticalsList: any[] = response.json();
+          this.topVerticals = verticalsList;
+          this.initTop3Verticals();
+        });
   }
 
   initTop3Verticals() {
@@ -86,8 +162,8 @@ export class DashboardComponent implements OnInit {
       data: {
         x : 'x',
         columns: [
-          ['x', '43400 - DX Security package', '44202 - Self-Monitoring, Video, Automat…', '44204 - Security, Video, Automation an...'],
-          ['Total', 18, 32, 27],
+          ['x', this.topVerticals[0]['vertical'], this.topVerticals[1]['vertical'], this.topVerticals[2]['vertical']],
+          ['Total', this.topVerticals[0]['amount'], this.topVerticals[1]['amount'], this.topVerticals[2]['amount']],
         ],
         type: 'bar'
       },
@@ -101,11 +177,11 @@ export class DashboardComponent implements OnInit {
             multiline: true
           },
         },
-        y: {
-          tick: {
-            format: function (d) { return d + '%'; }
-          }
-        }
+        // y: {
+        //   tick: {
+        //     format: function (d) { return d + '%'; }
+        //   }
+        // }
       },
       tooltip: {
         grouped: false,
@@ -115,6 +191,7 @@ export class DashboardComponent implements OnInit {
       }
     });
   }
+
 
   initTop3Extensions() {
     this.top3extensions = c3.generate({
@@ -163,6 +240,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  getPlatforms() {
+    const request = this.serverService.getPlatforms();
+    request
+      .subscribe(
+        (response: Response) => {
+          const platformsList: any[] = response.json();
+          this.platformsArray = platformsList;
+          this.initPlatforms();
+        });
+  }
+
   initPlatforms() {
     this.platforms = c3.generate({
       bindto: '#platforms',
@@ -174,15 +262,14 @@ export class DashboardComponent implements OnInit {
         pattern: ['#4ed8da', '#c04dd8', '#e06950', '#f8e71c'],
       },
       // padding: {
-      //   top: 13,
-      //   left: 50
+      //   left: 100
       // },
       data: {
         columns: [
-          ['Web', 26],
-          ['Mobile', 24],
-          ['IFTTT', 32.5],
-          ['Alexa', 17.5],
+          [this.platformsArray[0]['platform'], this.platformsArray[0]['usageAmount']],
+          [this.platformsArray[1]['platform'], this.platformsArray[1]['usageAmount']],
+          [this.platformsArray[2]['platform'], this.platformsArray[2]['usageAmount']],
+          [this.platformsArray[3]['platform'], this.platformsArray[3]['usageAmount']],
         ],
         type : 'donut',
         onclick: function (d, i) { console.log('onclick', d, i); },
@@ -198,11 +285,36 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+
+  getUsersTimeline() {
+    const request = this.serverService.getUsersTimeline();
+    request
+      .subscribe(
+        (response: Response) => {
+          const timelineList: any[] = response.json();
+          this.usersTimelineArray = timelineList;
+          this.modifyArray();
+          this.initUsersTimeline();
+        });
+  }
+
+  modifyArray() {
+    this.namesArray = ['x'];
+    this.valuesArray = ['data1'];
+    let index = 1;
+
+    for (let item of this.usersTimelineArray) {
+      this.namesArray.push(item['date']);
+      this.valuesArray.push(item['amount']);
+      index++;
+    }
+  }
+
   initUsersTimeline() {
     this.usersTimeline = c3.generate({
       bindto: '#users-timeline',
       size: {
-        width: 740,
+        width: 1180,
         height: 300
       },
       color: {
@@ -215,8 +327,8 @@ export class DashboardComponent implements OnInit {
       data: {
         x: 'x',
         columns: [
-          ['x', '2017-06-01', '2017-07-01', '2017-08-01', '2017-09-01', '2017-10-01', '2017-11-01', '2017-12-01'],
-          ['data1', 250, 520, 1250, 2550, 3000, 3200, 3215]
+          this.namesArray,
+          this.valuesArray,
         ]
       },
       axis: {

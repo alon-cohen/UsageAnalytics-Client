@@ -24,7 +24,7 @@
   font-size: 22px;
   text-align: center;
   color: #ffffff;
-  text-decoration: none;
+  text-decoration: no;
 }
 
 .sidenav-content {
@@ -52,7 +52,7 @@
 
 .sidenavitem {
   padding-left: 75px;
-  padding-right: 56px;
+  /*padding-right: 56px;*/
   padding-bottom: 30px;
   margin-top: 5px;
 }
