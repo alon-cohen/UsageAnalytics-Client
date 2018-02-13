@@ -31,7 +31,7 @@ export class ServerService {
   }
 
   getPlatforms() {
-    return this.http.get('http://localhost:8080/api/v1/platformcomparison?startDate=' + '2017-11-10' + '&endDate=' + '2017-11-16' + '&service=ALL&vendor=' + this.vendorId);
+    return this.http.get('http://localhost:8080/api/v1/platformcomparison?startDate=' + '2018-02-06' + '&endDate=' + '2018-02-13' + '&service=ALL&vendor=' + this.vendorId);
   }
 
   getUsersTimeline() {
